@@ -1,0 +1,9 @@
+build/
+data/
+dist/
+doc/
+nbproject/
+scripts/
+tests/
+zip/
+

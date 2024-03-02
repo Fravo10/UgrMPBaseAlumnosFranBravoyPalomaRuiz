@@ -14,3 +14,10 @@
  */
 
 #include "Kmer.h"
+
+
+Kmer::Kmer(int k){
+    
+    //Aqui hay que implementar
+    
+}

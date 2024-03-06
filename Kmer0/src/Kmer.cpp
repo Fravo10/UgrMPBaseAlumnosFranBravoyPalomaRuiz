@@ -74,5 +74,30 @@ bool IsValidNucleotide(char nucleotide, const std::string& validNucleotides){
     return valido;
 }
 void normalize(const std::string& validNucleotides){
+    for(char& nucleotide : _text){
+        if(validNucleotide.find(nucleotides) == std::string posicion){
+            nucleotide = MISSING_NUCLEOTIDE; 
+            else 
+                
+                nucleotide = std::toupper(nucleotide); 
+        }
+    }
     
+}
+
+
+
+
+
+void ToLower(Kmer& kmer){
+    for(char& nucleotide : kmer.toString()){
+        nucleotide = std::string tolower(nucloetide); 
+    }
+}
+
+
+void ToUpper(Kmer& kmer){
+    for(char& nucleotide :kmer.toString()){
+        nucleotide = std::string toupper(nucleotide); 
+    }
 }

@@ -14,10 +14,34 @@
  */
 
 #include "Kmer.h"
+#include <string>
+#include <iostream>
+
+using namespace std;
 
 
-Kmer::Kmer(int k){
+Kmer::Kmer(int k=1){
     
-    //Aqui hay que implementar
+if(k<= 0)
+        throw std::invalid_argument("El valor tiene que ser mayor que 0");
+        std::string(k, MISSING_NUCLEOTIDE)
+        _text = text  
     
 }
+Kmer::Kmer(const std::string& text){
+   if(text.empty())
+            throw std::invalid_argument("El texto esta vacio")
+                    _text = text; 
+}
+int getK() const{
+        
+        return text.sixe(); 
+    }
+int size() const{
+        
+        return getK();
+    }
+std::string toString() const{
+        `
+        return _text; 
+    }

@@ -7,3 +7,6 @@ scripts/
 tests/
 zip/
 
+*.xml
+*.mk
+

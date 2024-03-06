@@ -126,6 +126,8 @@ public:
      */
     Kmer complementary(const std::string& nucleotides, 
          const std::string& complementaryNucleotides) const;
+    // El objeto this es para referirme dentro de un metodo, al objeto.
+    // Por eso en este metodo utilizamos al this para conseguir al array
     
 private:
     /**

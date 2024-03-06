@@ -20,28 +20,59 @@
 using namespace std;
 
 
-Kmer::Kmer(int k=1){
+Kmer::Kmer(int k){
     
 if(k<= 0)
         throw std::invalid_argument("El valor tiene que ser mayor que 0");
-        std::string(k, MISSING_NUCLEOTIDE)
-        _text = text  
+for( k, k>0, k--){
+    _text.push_back (MISSING_NUCLEOTIDES);
+}
     
 }
+
+Kmer::Kmer(*this);
+
 Kmer::Kmer(const std::string& text){
-   if(text.empty())
+   if(_text.empty()){
             throw std::invalid_argument("El texto esta vacio")
+   }else{
                     _text = text; 
+   }
 }
 int getK() const{
         
-        return text.sixe(); 
+        return _text.size(); 
     }
 int size() const{
         
         return getK();
     }
 std::string toString() const{
-        `
         return _text; 
     }
+const char& at(int index) const{
+     if(index<0 || index > _text.size()){
+            throw std::out_of_range("Fuera de rango");
+     }else{
+         return _text.at(index); //Devuelve el item de esa posición
+     }
+}
+char& at(int index){
+     if(index<0 || index > _text.size()){
+            throw std::out_of_range("Fuera de rango");
+     }else{
+         return _text.at(index); //Devuelve el item de esa posición
+     }
+}
+bool IsValidNucleotide(char nucleotide, const std::string& validNucleotides){
+    bool valido = false;
+    for( int i=0; i< validNucleotides.leght(); i++){
+        if(nucleotide == validNucleotides [i]){
+            valido=true;
+        }
+    }
+    return valido;
+}
+void normalize(const std::string& validNucleotides){
+    
+}

@@ -51,10 +51,11 @@ int main(int argc, char* argv[]) {
     const string COMPLEMENTARY_NUCLEOTIDES = "TGCA";
 
     // This is a constant with the dimension of the array kmers
-    const int DIM_ARRAY_KMERS = 100;
+    const int DIM_ARRAY_KMERS = 100; //El atamño del array siempre va como constante;
     
     // This is the array where the kmers of the input genetic sequence will be
     // saved
+    // Aqui es donde se guardan en grupos de k letras en cada posición del array
     Kmer kmers[DIM_ARRAY_KMERS];
     
     // This is the array where the complementary kmers will be
@@ -74,3 +75,9 @@ int main(int argc, char* argv[]) {
     return 0;
 }
 
+// La funciones importantes es normalize, que se encarga de en los valores que no haya complementario pone una _
+// Y la funcion complementario la cual se encarga de cambiar por los complementerios.
+//Los vectores se pasan por referencia (&), estos se cambian, pero seguimos teniendo el original en el main
+// nombrefuncion( int&v == int [v])
+// El const es como una proteccion que le doy a mi vector, para asegurarme de que ese vector no va a ser modificado dentro de la funcion.
+//Esto puede servir para imprimir un valor

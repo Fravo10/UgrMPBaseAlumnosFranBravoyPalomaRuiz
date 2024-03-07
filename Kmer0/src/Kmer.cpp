@@ -86,6 +86,21 @@ void normalize(const std::string& validNucleotides){
 }
 
 
+Kmer complementary(const std::string& nucleotides, 
+         const std::string& complementaryNucleotides) const{
+    
+    if(nucleotides.size() != complementaryNucleotides.size())
+        throw std::invalid_argument("Las cadenas deben ser del mismo tamaño")
+                
+        std:: string result = _text; 
+    for(char& nucleotide : result){
+        nucleotide = complementaryNucleotides[i]; 
+    }
+    
+    return Kmer(result); 
+}
+
+
 
 
 

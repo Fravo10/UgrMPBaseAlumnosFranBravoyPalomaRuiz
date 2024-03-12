@@ -17,54 +17,75 @@
 #include <string>
 #include <iostream>
 
-using namespace std;
+using namespace std; // Con esto no hace falta poner los std::
 
-
+//Constructor que construye un objeto de longuitud k
+//Rellena con MISSING_NUCLEOTIDE
 Kmer::Kmer(int k){
-    
-if(k<= 0)
-        throw std::invalid_argument("El valor tiene que ser mayor que 0");
-for( k, k>0, k--){
-    _text.push_back (MISSING_NUCLEOTIDES);
-}
-    
+  /*
+  * @throw std::invalid_argument Throws an std::invalid_argument exception
+  * if @p k is less or equal than zero   
+  */ 
+if(k<= 0){
+    //Creo un string que al no ser valida k, se le concatena la frase.
+    //El to_string me transforma un entero a string que es lo que le pasas por parametro
+        throw invalid_argument(string("Kmer(int k):") +
+                "Longuitud inválida" + to_string(k)); 
 }
 
-Kmer::Kmer(*this);
+this ->_text = string(k,MISSING_NUCLEOTIDE);
+}
 
-Kmer::Kmer(const std::string& text){
+// Construye un objeto mediante el paso de un string
+Kmer::Kmer(const string & text){
    if(_text.empty()){
-            throw std::invalid_argument("El texto esta vacio")
+            throw invalid_argument(string ("Kmer(const string & test):") +
+                    "El texto está vacio");
    }else{
                     _text = text; 
    }
 }
+
+//Método que utiliza el método size
 int getK() const{
         
         return _text.size(); 
     }
+
+//Saca el tamaño de cada kmero.
 int size() const{
-        
-        return getK();
+    int lon_kmero;
+        this ->_text=lon_kmero;
+                
+        return lon_kmero;
     }
+
+//Método que devuelve una cadena
 std::string toString() const{
         return _text; 
     }
+
+//Metodo que devuelve una posicion de la cadena _text del kmer
+//CONST: no se modifica el char, "Está protegido"
 const char& at(int index) const{
      if(index<0 || index > _text.size()){
-            throw std::out_of_range("Fuera de rango");
+            throw out_of_range(string ("Kmer(const char& at(int index):") +
+                    "El indice está fuera de rango" + to_string(index));
      }else{
          return _text.at(index); //Devuelve el item de esa posición
      }
 }
+
+//Puede ser modificado por el método
 char& at(int index){
      if(index<0 || index > _text.size()){
-            throw std::out_of_range("Fuera de rango");
+            throw out_of_range(string ("Kmer(const char& at(int index):") +
+                    "El indice está fuera de rango" + to_string(index)););
      }else{
          return _text.at(index); //Devuelve el item de esa posición
      }
 }
-bool IsValidNucleotide(char nucleotide, const std::string& validNucleotides){
+bool IsValidNucleotide(char nucleotide, const string& validNucleotides){
     bool valido = false;
     for( int i=0; i< validNucleotides.leght(); i++){
         if(nucleotide == validNucleotides [i]){
@@ -72,6 +93,18 @@ bool IsValidNucleotide(char nucleotide, const std::string& validNucleotides){
         }
     }
     return valido;
+}
+
+void ToLower(Kmer& kmer){
+    for(char& nucleotide : kmer.toString()){
+        nucleotide = string tolower(nucloetide); 
+    }
+}
+
+void ToUpper(Kmer& kmer){
+    for(char& nucleotide :kmer.toString()){
+        nucleotide = std::string toupper(nucleotide); 
+    }
 }
 void normalize(const std::string& validNucleotides){
     for(char& nucleotide : _text){
@@ -104,15 +137,6 @@ Kmer complementary(const std::string& nucleotides,
 
 
 
-void ToLower(Kmer& kmer){
-    for(char& nucleotide : kmer.toString()){
-        nucleotide = std::string tolower(nucloetide); 
-    }
-}
 
 
-void ToUpper(Kmer& kmer){
-    for(char& nucleotide :kmer.toString()){
-        nucleotide = std::string toupper(nucleotide); 
-    }
-}
+

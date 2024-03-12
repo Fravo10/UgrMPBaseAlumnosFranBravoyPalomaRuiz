@@ -51,20 +51,25 @@ int main(int argc, char* argv[]) {
     const string COMPLEMENTARY_NUCLEOTIDES = "TGCA";
 
     // This is a constant with the dimension of the array kmers
-    const int DIM_ARRAY_KMERS = 100; //El atamño del array siempre va como constante;
+    const int DIM_ARRAY_KMERS = 100; //El tamaño del array siempre va como constante;
     
     // This is the array where the kmers of the input genetic sequence will be
     // saved
     // Aqui es donde se guardan en grupos de k letras en cada posición del array
-    Kmer kmers[DIM_ARRAY_KMERS];
+    Kmer kmers[DIM_ARRAY_KMERS]; //Array de objeto kmer.
     
     // This is the array where the complementary kmers will be
     // saved
     Kmer complementaryKmers[DIM_ARRAY_KMERS];
     
+    int k, kmers, index;
+    string inputstring; //Lista de nucleótidos de entrada
+    
     // Read K (integer) and a string with the input nucleotides list
+    
 
     // Obtain the kmers: find the kmers in the input string and put them in an array of Kmers
+    
     
     // Normalize each Kmer in the array
 

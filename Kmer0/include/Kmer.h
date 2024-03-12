@@ -134,7 +134,7 @@ private:
      * A string with a list of characters representing the nucleotides in 
      * this Kmer. 
      */
-    std::string _text;
+    std::string _text; // guarda kmero de espacio k
 }; // end class Kmer
 
 /**

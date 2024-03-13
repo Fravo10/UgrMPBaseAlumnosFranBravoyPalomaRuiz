@@ -5,12 +5,8 @@
 
 /* 
  * File:   main.cpp
- * @author Silvia Acid Carrillo <acid@decsai.ugr.es>
- * @author Andrés Cano Utrera <acu@decsai.ugr.es>
- * @author Luis Castillo Vidal <L.Castillo@decsai.ugr.es>
- * @author Javier Martínez Baena <jbaena@ugr.es>
- *
- * Created on 24 October 2023, 13:58
+ * @author Paloma Ruiz Molina, <palomaruiz2005@correo.ugr.es>
+ * @author Francisco Bravo
  */
 
 #include <iostream>
@@ -66,10 +62,16 @@ int main(int argc, char* argv[]) {
     string inputstring; //Lista de nucleótidos de entrada
     
     // Read K (integer) and a string with the input nucleotides list
+    cin >> k;
+    getline(cin,inputstring); //Lee linea completa de texto y lo almacena en un string
+    
     
 
     // Obtain the kmers: find the kmers in the input string and put them in an array of Kmers
     
+    kmer::Kmer(k);
+    
+    kmer::kmer (inputstring);
     
     // Normalize each Kmer in the array
 

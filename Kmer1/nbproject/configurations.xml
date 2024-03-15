@@ -4,7 +4,9 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>include/ArrayKmerFreqFunctions.h</itemPath>
       <itemPath>include/Kmer.h</itemPath>
+      <itemPath>include/KmerFreq.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -13,7 +15,9 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>src/ArrayKmerFreqFunctions.cpp</itemPath>
       <itemPath>src/Kmer.cpp</itemPath>
+      <itemPath>src/KmerFreq.cpp</itemPath>
       <itemPath>src/main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -27,30 +31,35 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>.gitignore</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="Debug" type="1">
       <toolsSet>
-        <compilerSet>GNU|GNU</compilerSet>
+        <compilerSet>default</compilerSet>
         <dependencyChecking>true</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
         <ccTool>
-          <commandlineTool>g++</commandlineTool>
+          <standard>11</standard>
           <incDir>
             <pElem>include</pElem>
           </incDir>
           <commandLine>-Wall -pedantic</commandLine>
         </ccTool>
       </compileType>
-      <item path=".gitignore" ex="false" tool="3" flavor2="0">
+      <item path="include/ArrayKmerFreqFunctions.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/Kmer.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="include/KmerFreq.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ArrayKmerFreqFunctions.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="src/Kmer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/KmerFreq.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -67,7 +76,6 @@
         </cTool>
         <ccTool>
           <developmentMode>5</developmentMode>
-          <standard>11</standard>
         </ccTool>
         <fortranCompilerTool>
           <developmentMode>5</developmentMode>
@@ -76,11 +84,17 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path=".gitignore" ex="false" tool="3" flavor2="0">
+      <item path="include/ArrayKmerFreqFunctions.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/Kmer.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="include/KmerFreq.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ArrayKmerFreqFunctions.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="src/Kmer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/KmerFreq.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>

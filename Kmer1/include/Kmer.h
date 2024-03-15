@@ -1,12 +1,14 @@
 /*
- * Metodología de la Programación: Kmer0
+ * Metodología de la Programación: Kmer1
  * Curso 2023/2024
  */
 
 /** 
  * @file Kmer.h
- * @author Paloma Ruiz Molina, <palomaruiz2005@correo.ugr.es>
- * @author Francisco Bravo Díez, <franbravodiez@correo.ugr.es>
+ * @author Silvia Acid Carrillo <acid@decsai.ugr.es>
+ * @author Andrés Cano Utrera <acu@decsai.ugr.es>
+ * @author Luis Castillo Vidal <L.Castillo@decsai.ugr.es>
+ * @author Javier Martínez Baena <jbaena@ugr.es>
  * 
  * Created on 24 October 2023, 14:00
  */
@@ -96,6 +98,18 @@ public:
      * @return A reference to the character at the given position
      */
     char& at(int index);
+    
+    /**
+     * @brief Converts uppercase letters in this Kmer to lowercase
+     * Modifier method
+     */
+    void toLower();
+    
+    /**
+     * @brief Converts lowercase letters in this Kmer to uppercase
+     * Modifier method
+     */
+    void toUpper();
  
     /**
      * @brief Normalizes this Kmer. That is, it converts all the characters to
@@ -124,15 +138,13 @@ public:
      */
     Kmer complementary(const std::string& nucleotides, 
          const std::string& complementaryNucleotides) const;
-    // El objeto this es para referirme dentro de un metodo, al objeto.
-    // Por eso en este metodo utilizamos al this para conseguir al array
     
 private:
     /**
      * A string with a list of characters representing the nucleotides in 
      * this Kmer. 
      */
-    std::string _text; // guarda kmero de espacio k
+    std::string _text;
 }; // end class Kmer
 
 /**
@@ -149,12 +161,14 @@ bool IsValidNucleotide(char nucleotide, const std::string& validNucleotides);
 
 /**
  * @brief Converts to lowercase the characters (nucleotides) of the given Kmer
+ * @deprecated This function could go away in future versions
  * @param kmer A Kmer object. Output parameter
  */
 void ToLower(Kmer& kmer);
 
 /**
  * @brief Converts to uppercase the characters (nucleotides) of the given Kmer
+ * @deprecated This function could go away in future versions
  * @param kmer A Kmer object. Output parameter
  */
 void ToUpper(Kmer& kmer);

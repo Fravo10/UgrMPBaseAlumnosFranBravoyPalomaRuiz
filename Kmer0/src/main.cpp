@@ -6,7 +6,7 @@
 /* 
  * File:   main.cpp
  * @author Paloma Ruiz Molina, <palomaruiz2005@correo.ugr.es>
- * @author Francisco Bravo
+ * @author Francisco Bravo Díez, <franbravodiez@correo.ugr.es>
  */
 
 #include <iostream>
@@ -72,6 +72,7 @@ int main(int argc, char* argv[]) {
     kmer::Kmer(k);
     
     kmer::kmer (inputstring);
+    isValidNucleotide(ArrayKmer[0].at(0),VALI)
     
     // Normalize each Kmer in the array
 

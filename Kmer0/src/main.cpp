@@ -58,27 +58,47 @@ int main(int argc, char* argv[]) {
     // saved
     Kmer complementaryKmers[DIM_ARRAY_KMERS];
     
-    int k, kmers, index;
+    int k;
     string inputstring; //Lista de nucleótidos de entrada
+    int num_kmeros;
     
     // Read K (integer) and a string with the input nucleotides list
     cin >> k;
-    getline(cin,inputstring); //Lee linea completa de texto y lo almacena en un string
+    cin >> inputstring; //Lee linea completa de texto y lo almacena en un string
     
+    num_kmeros=inputstring.size()-k+1;
     
-
+    if(num_kmeros <= 0){
+            throw out_of_range(string ("Kmer(const char& at(int index):") +
+                    "El indice está fuera de rango");
+    }
+    
     // Obtain the kmers: find the kmers in the input string and put them in an array of Kmers
+    for(int i=0; i<inputstring.size(); i++){
+      
+        Kmer minikmer=inputstring.substr(i,k);  
+         // Normalize each Kmer in the array 
+        minikmer.normalize(VALID_NUCLEOTIDES);
+        kmers[i]=minikmer;
+    }
     
-    kmer::Kmer(k);
-    
-    kmer::kmer (inputstring);
-    isValidNucleotide(ArrayKmer[0].at(0),VALI)
-    
-    // Normalize each Kmer in the array
-
     // Obtain the complementary kmers and turn them into lowercase
-
-    // Show the list of kmers and complementary kmers as in the example
+   for(int i=0; i< inputstring.size(); i++){
+        
+       Kmer minikmer2 = kmers[i].complementary(VALID_NUCLEOTIDES, COMPLEMENTARY_NUCLEOTIDES);
+       
+       ToLower(minikmer2);
+       
+       complementaryKmers[i]=minikmer2;
+    }
+    
+   // Show the list of kmers and complementary kmers as in the example
+    
+    cout << num_kmeros<< endl;
+    
+    for(int i=0; i<num_kmeros; i++){
+        cout << kmers[i].toString() << "<-->" << complementaryKmers[i].toString() << endl;
+    }
     
     return 0;
 }

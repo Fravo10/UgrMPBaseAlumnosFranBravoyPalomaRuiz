@@ -122,7 +122,7 @@ public:
      * the same
      * @return The complementary of this Kmer
      */
-    Kmer complementary(const std::string& nucleotides, 
+    Kmer complementary(const std::string& Validnucleotides, 
          const std::string& complementaryNucleotides) const;
     // El objeto this es para referirme dentro de un metodo, al objeto.
     // Por eso en este metodo utilizamos al this para conseguir al array

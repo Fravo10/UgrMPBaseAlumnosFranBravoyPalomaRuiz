@@ -15,7 +15,7 @@
 #include <string>
 
 
-using namespace std; // Con esto no hace falta poner los std::
+using namespace std; 
 
 //Constructor que construye un objeto de longuitud k
 //Rellena con MISSING_NUCLEOTIDE
@@ -33,9 +33,19 @@ Kmer::Kmer(int k){
   }
 
   _text = string(k,MISSING_NUCLEOTIDE);
+  
 }
 
-// Construye un objeto mediante el paso de un string
+Kmer:: Kmer(int K){
+    
+    if( k <1){
+        throw invalid_argument(string("Kmer(int K):") +
+                "Longitud inválida" + to_string(k)); 
+    }
+    
+    _text = string(k, MISSING_NUCLEOTIDE); 
+}
+
 Kmer::Kmer(const string & text){
    /*if( _text.empty()){
             throw invalid_argument(string ("Kmer(const string & test):") + "El texto está vacio");
@@ -101,9 +111,51 @@ void Kmer::normalize(const string& validNucleotides){
     for(int i = 0; i< size() ; i++){
         if(IsValidNucleotide( _text.at(i),validNucleotides)==false){//Si no es válido...
              _text=MISSING_NUCLEOTIDE;
+
+    
+    if(_text.empty())
+        throw invalid_argument("Kmer(const string & text):") + "El texto está vacío");
+    else 
+        _text = text; 
+    
+}
+
+int Kmer:: getK() const{
+    return size(); 
+}
+
+int Kmer::toString() const{
+    retunr _text; 
+}
+
+const char& Kmer::at(index) const{
+    
+    i(index <0 || index >= _text.size()){
+        throw out_of_range(string ("Kmer(const char& at(int index):") +
+                "El indice esta fuera de rango" + to_tring(index)); 
+    }else{
+        const int num = _text.at(index); 
+        return num; 
+    }
+}
+
+char& kmer::at(int index){
+    if(index < 0 || index >= _text.size()) 
+        throw out_of_range(string("Kmer(const char& at(int index):")+
+                "El indice esta fuera de rango" + to_string(index)); 
+    return this -> _text.at(index); 
+}
+
+
+void Kmer::normalize(const string& validNucleotides){
+    
+    ToUpper(*this); 
+    
+    for(int i = 0; i < size(); i++){
+        if(!IsValidNucleotide(_text[i], validNucleotides)){
+            _text[i] = MISSING_NUCLEOTIDE; 
         }
     }
-    
 }
 
 // Cuando pasamos un valor por referencia se modifica la celda de memoria
@@ -158,3 +210,38 @@ void ToUpper(Kmer& Kmer){
      Kmer.at(i) = toupper(Kmer.at(i)); 
     }
 }
+
+Kmer complementary(const string& Validnucleotides, 
+        const string& complementary Nucleotides) const{
+    if(Validnucleotides.size() != complementaryNucleotides.size())
+        throw invalid_argument("Las cadenas deben ser del mismo tamanio"); 
+    
+    string mycomplementary; 
+    int pos; 
+    for(int i= 0; i < mycomplementary.size(); i++){
+        
+        pos= Validnucleotides.find(Validnucleotides.at(i)); 
+        mycomplementary=complementaryNucleotides.at(pos); 
+        mycomplementary.puh_back(); 
+    }
+    return Kmer(complementary); 
+    
+}
+
+bool IsValidNucleotide(char nucleotide, const string& validNucleotides){
+    bool valid; 
+    if(validNucleotides.find(nucleotide) == string::npos){
+        valido=false; 
+    }else{
+        valido = true; 
+    }
+    return valido; 
+}
+
+void ToLower(Kmer& kmer){
+    for(int i=0; i<Kmer.size(); i++){
+        kmer.at(i) = toupper(kmer.at(i)); 
+        
+    }
+}
+

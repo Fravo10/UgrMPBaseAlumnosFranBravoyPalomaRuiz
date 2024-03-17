@@ -36,15 +36,8 @@ CCC_G<-->ggg_c
 CC_G_<-->gg_c_
 C_G_G<-->g_c_c
  */
-int main(int argc, char* argv[]) {
-    // This string contains the list of nucleotides that are considered as
-    // valid within a genetic sequence. The rest of characters are considered as
-    // unknown nucleotides 
-    const string VALID_NUCLEOTIDES = "ACGT";
-    
-    // This string contains the list of complementary nucleotides for each
-    // nucleotide in validNucleotides
-    const string COMPLEMENTARY_NUCLEOTIDES = "TGCA";
+#include <iostream> 
+#include "Kmer.h"
 
     // This is a constant with the dimension of the array kmers
     const int DIM_ARRAY_KMERS = 100; //El tamaño del array siempre va como constante;
@@ -98,10 +91,40 @@ int main(int argc, char* argv[]) {
     
     for(int i=0; i<num_kmeros; i++){
         cout << kmers[i].toString() << "<-->" << complementaryKmers[i].toString() << endl;
+
+using namespace std; 
+
+int main( int argc, char* argv[]){
+    conststring VALID_NUCLEOTIDES = "ACGT"; 
+    const string COMPLEMENTARY_NUCLEOTIDES = "TGCA"; 
+    const int DIM_ARRAY_KMERS = 100; 
+    
+    Kmer kmer[DIM_ARRAY_KMERS]; 
+    Kmer complementaryKmers[DIM_ARRAY_KMERS]; 
+    
+    int k; 
+    string inpustring; 
+    
+    cout << "Ingrese el valor de k: "; 
+    cin >> k; 
+    getline(cin, inputstring); 
+    
+    cout << "Ingrese los k-mers" << DIM_ARRAY_KMERS << "):" << endl; 
+    int numKmers = 0; 
+    for(int i = 0; i < DIM_ARRAY_KMERS; ++i){
+        getline(cin, inputstring); 
+        kmers[numKmers] = Kmer(inputstring); 
+        ++numKers; 
     }
     
-    return 0;
+    cout << "Los kmers que has ingresado:" << endl; 
+    for(int i = 0; i <numKers; ++i){
+        cout << kmers[i].toString() << endl;
+    }
+    
+    return 0; 
 }
+
 
 // La funciones importantes es normalize, que se encarga de en los valores que no haya complementario pone una _
 // Y la funcion complementario la cual se encarga de cambiar por los complementerios.

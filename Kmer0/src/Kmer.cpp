@@ -165,14 +165,14 @@ Kmer Kmer::complementary(const string& Validnucleotides,
     
     if(Validnucleotides.size() != complementaryNucleotides.size())
         throw invalid_argument("Las cadenas deben ser del mismo tamaño");
-    
-    
+}
+
     string mycomplementary;
     int pos;          
-    for(int i=0; i < mycomplementary.size(); i++)
-    {
-        pos= Validnucleotides.find(Validnucleotides.at(i));
-        mycomplementary.push_back(complementaryNucleotides.at(pos));
+    for(int i=0; i < mycomplementary.size(); i++){
+        char nucleotide = _text[i];
+        if( pos = string::npos) 
+        mycomplementary.push_back(complementaryNucleotides.at[pos]);
         }
     
     return Kmer(mycomplementary); 
@@ -233,7 +233,7 @@ bool IsValidNucleotide(char nucleotide, const string& validNucleotides){
     if(validNucleotides.find(nucleotide) == string::npos){
         valido=false; 
     }else{
-        valido = true; 
+        valido=true; 
     }
     return valido; 
 }
